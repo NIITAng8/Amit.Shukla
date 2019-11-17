@@ -1,0 +1,136 @@
+console.log("----------------------Exercise 1-------------------------");
+
+let strMsg: string = 'Hello World';
+let strHello = () =>  console.log(strMsg);  
+strHello();
+
+
+
+
+console.log("----------------------Exercise 2-------------------------");
+
+let year:number=2012;
+
+if ((year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0) ==true)
+{
+console.log("it is leap year");
+}
+else
+{
+console.log("it is not leap year");
+}
+
+
+
+
+
+console.log("----------------------Exercise 3------------------------");
+
+let CurrentAge= new Map();  
+CurrentAge.set("Years", 2314530000);  
+CurrentAge.set("Months", 345859494);  
+CurrentAge.set("Days", 2456000);  
+CurrentAge.set("Hours", 216000);  
+CurrentAge.set("Minutes", 3600);  
+CurrentAge.set("Seconds", 60);  
+
+
+var Calculateage = function (Infoage) {
+    console.log('Input seconds are : '+ Infoage.toString())
+    return Math.floor(Infoage / CurrentAge.get("Years")) + ' Years ' +
+        Math.floor((Infoage % CurrentAge.get("Years")) / CurrentAge.get("Months")) + ' Months ' +
+        Math.floor(((Infoage % CurrentAge.get("Years") % CurrentAge.get("Months"))) / CurrentAge.get("Days")) + ' Days ' +
+        Math.floor((((Infoage % CurrentAge.get("Years") % CurrentAge.get("Months")) % CurrentAge.get("Days"))) / CurrentAge.get("Hours")) + ' Hours ' +
+        Math.floor(((((Infoage % CurrentAge.get("Years") % CurrentAge.get("Months")) % CurrentAge.get("Days")) % CurrentAge.get("Hours"))) / CurrentAge.get("Minutes")) + ' Minutes ' +
+        Math.floor((((((Infoage % CurrentAge.get("Years") % CurrentAge.get("Months")) % CurrentAge.get("Days")) % CurrentAge.get("Hours")) % CurrentAge.get("Minutes"))) / CurrentAge.get("Seconds")) + ' Seconds ';
+};
+console.log(Calculateage(74992640000)); 
+
+
+
+
+
+console.log("----------------------Exercise 4-------------------------");
+
+
+let CountOccurenceWord = (_phrase) => {
+    let _strArray = _phrase.split(" ");
+    let i = 0;
+    let occurrencemap = new Map();
+    for (; i < _strArray.length; i++) {
+        occurrencemap.has(_strArray[i]) == true ? occurrencemap.set(_strArray[i], occurrencemap.get(_strArray[i]) + 1)
+            : occurrencemap.set(_strArray[i], 1);
+    }
+    console.log(occurrencemap);
+};
+CountOccurenceWord("kuch kuch hota hai");
+
+
+
+
+console.log("----------------------Exercise 5-------------------------");
+
+let reversestring = (strName) => { return strName.split("").reverse().join(""); };
+console.log(reversestring ("Amit"));
+
+
+
+console.log("----------------------Exercise 6-------------------------");
+
+
+let num = (a:Number,b:Number,c:Number):void =>
+{
+  if (a==b && b==c)
+
+  {
+console.log("This Triangle is an Equilateral triangle");
+  }
+
+  else if ((a==b && b!=c ) || (a!=b && c==a) || (c==b && c!=a))
+  {
+ console.log("This triangle is an Isosceles Triangle");
+  }
+
+  else if (a!=b && b!=c && c!=a)
+{
+
+    console.log("This triangle is an Scalene Triangle");
+}
+
+}
+
+num(1,2,3);
+
+
+
+
+
+
+
+console.log("----------------------Exercise 7-------------------------");
+
+
+
+
+
+
+
+let IsArmstrong = (no:number) => {
+    return new Promise(function(resolve,reject){
+    let num = no.toString(10).split('').map(Number);
+    let output;
+    let sum: number = 0;
+    for (let i = 0; i < num.length; i++) {
+      sum +=  Math.pow(num[i], num.length);
+    }
+      (sum == no) ?  resolve("The number "+ no  +" is an Armstrong number") : resolve ("The number:" + no + " is not an Armstrong number");
+      return output;
+    })
+    }
+    let fnxn = (message:string)=>console.log(message);
+    let error = (message:string)=>console.log(message);
+    IsArmstrong(370).then(fnxn,error);	
+
+
+
+
